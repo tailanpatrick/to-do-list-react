@@ -11,7 +11,7 @@ import "./App.css";
 
 const App = () => {
 	// Use state mantém o componente atualizado
-	const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')));
+	const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
 
 	const handleSaveLocalStorage = (tasks) => {
 		localStorage.setItem('tasks',JSON.stringify(tasks));
