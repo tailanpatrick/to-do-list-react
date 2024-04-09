@@ -12,6 +12,11 @@ const AddTask = ({handleTaskAddition}) => {
         setInputData(e.target.value);
     }
 
+    const handleInputEnter = (e) => {
+        if(e.key === 'Enter') handleTaskAddition(inputData);
+        setInputData('');
+    }
+
     const handleAddTaskClick = () => {
         handleTaskAddition(inputData);
         setInputData('');
@@ -20,12 +25,13 @@ const AddTask = ({handleTaskAddition}) => {
     return <div className='add-task-container'>
         <input
             onChange={handleInputChange}
+            onKeyDown={handleInputEnter}
             value={inputData}
             className="add-task-input"
             type="text"
         />
         <div className="add-task-button-container">
-            <Button onClick={handleAddTaskClick}>
+            <Button onClick={handleAddTaskClick}>          
                 Adicionar
             </Button>
 

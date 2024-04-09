@@ -11,8 +11,12 @@ import "./App.css";
 
 const App = () => {
 	// Use state mantém o componente atualizado
-	const [tasks, setTasks] = useState([]);
+	const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')));
 
+	const handleSaveLocalStorage = (tasks) => {
+		localStorage.setItem('tasks',JSON.stringify(tasks));
+		console.log(tasks);
+	}
 
 	const handleTaskClick = (taskId) => {
 		const newTasks = tasks.map(task => {
@@ -22,6 +26,7 @@ const App = () => {
 		});
 
 		setTasks(newTasks);
+		handleSaveLocalStorage(newTasks);
 	}
 
 	const handleTaskAddition = (taskTitle) => {
@@ -34,12 +39,14 @@ const App = () => {
 		}];
 
 		setTasks(newTask);
+		handleSaveLocalStorage(newTask);
 	}
 
 	const handleTaskDeletion = (taskId) => {
 		const newTasks = tasks.filter((task) => taskId !== task.id);
 
 		setTasks(newTasks);
+		handleSaveLocalStorage(newTasks);
 	}
 
 	return (
