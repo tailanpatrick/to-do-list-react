@@ -4,17 +4,19 @@ import React, { useState } from 'react';
 import "./AddTask.css"
 import Button from './Button';
 
-const AddTask = ({handleTaskAddition}) => {
+const AddTask = ({ handleTaskAddition }) => {
 
-    const [ inputData, setInputData ] = useState('');
+    const [inputData, setInputData] = useState('');
 
     const handleInputChange = (e) => {
         setInputData(e.target.value);
     }
 
     const handleInputEnter = (e) => {
-        if(e.key === 'Enter') handleTaskAddition(inputData);
-        setInputData('');
+        if (e.key === 'Enter') {
+            handleTaskAddition(inputData);
+            setInputData('');
+        }
     }
 
     const handleAddTaskClick = () => {
@@ -31,7 +33,7 @@ const AddTask = ({handleTaskAddition}) => {
             type="text"
         />
         <div className="add-task-button-container">
-            <Button onClick={handleAddTaskClick}>          
+            <Button onClick={handleAddTaskClick}>
                 Adicionar
             </Button>
 
