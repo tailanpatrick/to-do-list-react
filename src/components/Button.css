@@ -13,7 +13,7 @@
     transition: all .5s ease;
 }
 
-.button:hover {
+.button:active {
     background: #444;
     color: chartreuse;
 }
