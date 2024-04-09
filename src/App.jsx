@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import axios from "axios";
 
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
@@ -12,18 +11,7 @@ import "./App.css";
 
 const App = () => {
 	// Use state mantém o componente atualizado
-	const [tasks, setTasks] = useState([
-		{
-			id: 1,
-			title: "Estudar programação",
-			completed: false,
-		},
-		{
-			id: 2,
-			title: "Ler Livros",
-			completed: true,
-		},
-	]);
+	const [tasks, setTasks] = useState([]);
 
 
 	const handleTaskClick = (taskId) => {
